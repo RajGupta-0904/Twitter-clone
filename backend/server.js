@@ -53,3 +53,16 @@ app.use("/api/notificatios",notificationRoutes)
 app.listen(PORT,()=>{
     console.log(`server is running on port ${PORT}`)
 });
+
+// const password = encodeURIComponent("Raj@123");
+
+// // Construct the MongoDB URI using template literals
+// const mongoUri = `mongodb+srv://RajGupta0904:${password}@cluster0.krn3god.mongodb.net/mydatabase?retryWrites=true&w=majority&appName=Cluster0`;
+
+// mongoose.connect(mongoUri)
+//     .then(() => {
+//         console.log('Connected to MongoDB');
+//     })
+//     .catch((error) => {
+//         console.error('Error connecting to MongoDB: ', error.message);
+//     });
