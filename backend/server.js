@@ -10,7 +10,20 @@ import postRoutes from "./routes/post.routes.js"
 import notificationRoutes from "./routes/notification.routes.js"
 import cookieParser from "cookie-parser";
 
-// mongoose.connect('mongodb://127.0.0.1:27017/Twitter', {
+// mongoose.connect("mongodb+srv://RajGupta0904:Raj@123@cluster0.krn3god.mongodb.net/mydatabase?retryWrites=true&w=majority&appName=Cluster0", 
+
+
+mongoose.connect("mongodb+srv://RajGupta0904:Raj%40123@cluster0.krn3god.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0"
+   )
+.then(() => {
+    console.log('Connected  to MongoDB');
+})
+.catch((error) => {
+    console.error('Error connecting to MongoDB: ', error.message);
+});
+
+dotenv.config();
+// mongoose.connect(process.env.DATABASE, {
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true,
 // })
@@ -20,18 +33,6 @@ import cookieParser from "cookie-parser";
 // .catch((error) => {
 //     console.error('Error connecting to MongoDB: ', error.message);
 // });
-
-dotenv.config();
-mongoose.connect(process.env.DATABASE, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => {
-    console.log('Connected  to MongoDB');
-})
-.catch((error) => {
-    console.error('Error connecting to MongoDB: ', error.message);
-});
 cloudinary.config({
     cloud_name:process.env.CLOUDINARY_CLOUD_NAME,
     api_key:process.env.CLOUDINARY_API_KEY,
