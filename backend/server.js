@@ -10,7 +10,19 @@ import postRoutes from "./routes/post.routes.js"
 import notificationRoutes from "./routes/notification.routes.js"
 import cookieParser from "cookie-parser";
 
-mongoose.connect('mongodb://127.0.0.1:27017/Twitter', {
+// mongoose.connect('mongodb://127.0.0.1:27017/Twitter', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+// })
+// .then(() => {
+//     console.log('Connected  to MongoDB');
+// })
+// .catch((error) => {
+//     console.error('Error connecting to MongoDB: ', error.message);
+// });
+
+dotenv.config();
+mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -20,8 +32,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/Twitter', {
 .catch((error) => {
     console.error('Error connecting to MongoDB: ', error.message);
 });
-
-dotenv.config();
 cloudinary.config({
     cloud_name:process.env.CLOUDINARY_CLOUD_NAME,
     api_key:process.env.CLOUDINARY_API_KEY,
